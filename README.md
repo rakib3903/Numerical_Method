@@ -9,6 +9,6 @@
 1. Find middle point c= (a + b)/2
 2. If f(c) == 0, then c is the root of the solution
 3. Else f(c) != 0
-    1. If value f(a)*f(c) < 0 then root lies between a and c. So we recur for a and c
-    2. Else If f(b)*f(c) < 0 then root lies between b and c. So we recur b and c.
-    3. Else given function doesn’t follow one of assumptions.
+       1. If value f(a)*f(c) < 0 then root lies between a and c. So we recur for a and c
+       2. Else If f(b)*f(c) < 0 then root lies between b and c. So we recur b and c.
+       3. Else given function doesn’t follow one of assumptions.
