@@ -6,23 +6,23 @@
 
       private:
       double f(double x){
-        return x*x*x - x*x + 2;
+        return x*x*x + x*x - 1;
       }
 
       public:
-      double a = -200, b=300;
-      // BisectionMethod(){
-      //   for(int i = -9; i <= 9; i++){
-      //     for(int j = -9; j<=9; j++){
-      //       if(f(i) * f(j) < 0){
-      //         a = min(i,j);
-      //         b = max(i, j);
-      //       }
-      //     }
-      //   }
-      // }
+      double a, b;
+      BisectionMethod(){
+        for(int i = -9; i <= 9; i++){
+          for(int j = -9; j<=9; j++){
+            if(f(i) * f(j) < 0){
+              a = min(i,j);
+              b = max(i, j);
+            }
+          }
+        }
+      }
       void ab(){
-        double pricision = 0.01;
+        double pricision = 0.0001;
       double c = (a + b) / 2;
       double x = c;
           if(f(a) * f(c) > 0){
