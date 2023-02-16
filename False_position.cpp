@@ -2,7 +2,7 @@
     #define ll long long
     using namespace std;
     
-    class BisectionMethod{
+    class FalsePosition{
 
       private:
       double f(double x){
@@ -11,7 +11,7 @@
 
       public:
       double a, b;
-      BisectionMethod(){
+      FalsePosition(){
         for(int i = -9; i <= 9; i++){
           for(int j = -9; j<=9; j++){
             if(f(i) * f(j) < 0){
@@ -47,7 +47,7 @@
     };
 
     int main(){  
-      BisectionMethod bsm;
-      bsm.ab();
+      FalsePosition fp;
+      fp.ab();
       return 0;
     }
