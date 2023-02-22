@@ -28,5 +28,5 @@
        * Else given function doesn’t follow one of assumptions.<br>
  
 <h1>***Newton_Rafson.cpp</h1>
-<p>T<b>This is the numerical method for finding an approximate root of a function. This method is used to improve the value of the root obtained from false position and bisection method.</b></p>
+<p><b>This is the numerical method for finding an approximate root of a function. This method is used to improve the value of the root obtained from false position and bisection method. This method requires just a root initially by assumption.</b></p>
 In this method intitially we select a root x_0. Then we can find out the roots using the formuls x_1 = x_0 - (f(x_0)/f'(x_0)).
