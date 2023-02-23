@@ -15,14 +15,18 @@
       public:
       double a;
       NuwtonRafson(){
+        srand(time(0));
         a = rand() % 10;
+        cout<<"root----> "<<a<<endl;
       }
       void ab(){
         double pricision = 0.001;
          a = a - (f(a)/g(a));
+         cout<<"root----> "<<a<<endl;
         double x = a;
         while(true){
           a = a - (f(a)/g(a));
+          cout<<"root----> "<<a<<endl;
           if(abs(a - x) <= pricision) break;
             x = a;
         }

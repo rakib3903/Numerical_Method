@@ -12,25 +12,31 @@
       public:
       double a, b;
       BisectionMethod(){
-        for(int i = -9; i <= 9; i++){
-          for(int j = -9; j<=9; j++){
-            if(f(i) * f(j) < 0){
-              a = min(i,j);
-              b = max(i, j);
+        srand(time(0));
+          while(true){
+            a = rand() % 10-6;
+            b = rand() % 10;
+            if(f(a) * f(b) < 0){
+              int x = min(a,b);
+              b = max(a,b);
+              a = x;
+              break;
             }
           }
         }
-      }
+      
       void ab(){
         double pricision = 0.0001;
       double c = (a + b) / 2;
+      cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       double x = c;
           if(f(a) * f(c) > 0){
                     a = c;
                   }else{
                     b = c;
-                  }
-                  c =(a+b)/2;
+                  } 
+              c =(a+b)/2; 
+              cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       while(true){
         if(c == 0.0) break;
          else if(f(a) * f(c) > 0){
@@ -38,9 +44,10 @@
         }else{
           b = c;
         }
-        if(abs(c - x) <= pricision) break;
+        if(abs(c - x) <= pricision){} break;
         x = c;
         c = (a + b) / 2;
+        cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       }
       cout<<c<<endl;
       }

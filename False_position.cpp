@@ -12,18 +12,22 @@
       public:
       double a, b;
       FalsePosition(){
-        for(int i = -9; i <= 9; i++){
-          for(int j = -9; j<=9; j++){
-            if(f(i) * f(j) < 0){
-              a = min(i,j);
-              b = max(i, j);
+        srand(time(0));
+          while(true){
+            a = rand() % 10-9;
+            b = rand() % 10;
+            if(f(a) * f(b) < 0){
+              int x = min(a,b);
+              b = max(a,b);
+              a = x;
+              break;
             }
           }
         }
-      }
       void ab(){
         double pricision = 0.0001;
       double c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
+      cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       double x = c;
           if(f(a) * f(c) > 0){
                     a = c;
@@ -31,6 +35,7 @@
                     b = c;
                   }
                   c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
+                  cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       while(true){
         if(c == 0.0) break;
          else if(f(a) * f(c) > 0){
@@ -41,6 +46,7 @@
         if(abs(c - x) <= pricision) break;
         x = c;
         c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
+        cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       }
       cout<<c<<endl;
       }
