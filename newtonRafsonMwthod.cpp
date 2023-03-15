@@ -27,7 +27,7 @@
         while(true){
           a = a - (f(a)/g(a));
           cout<<"root----> "<<a<<endl;
-          if(abs(a - x) <= pricision) break;
+          if(abs((a - x)/a) < pricision) break;
             x = a;
         }
         cout<<a<<endl;

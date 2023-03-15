@@ -25,7 +25,7 @@
           }
         }
       void ab(){
-        double pricision = 0.0001;
+        double pricision = 0.001;
       double c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
       cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       double x = c;
@@ -43,7 +43,7 @@
         }else{
           b = c;
         }
-        if(abs(c - x) <= pricision) break;
+        if(abs((c - x)/c) < pricision) break;
         x = c;
         c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
         cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;

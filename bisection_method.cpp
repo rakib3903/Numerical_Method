@@ -6,7 +6,7 @@
 
       private:
       double f(double x){
-        return x*x*x + x*x - 1;
+        return x*x*x - x - 1;
       }
 
       public:
@@ -26,7 +26,7 @@
         }
       
       void ab(){
-        double pricision = 0.0001;
+        double pricision = 0.01;
       double c = (a + b) / 2;
       cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
       double x = c;
@@ -44,7 +44,7 @@
         }else{
           b = c;
         }
-        if(abs(c - x) <= pricision){} break;
+        if(abs((c - x)/c) < pricision) break;
         x = c;
         c = (a + b) / 2;
         cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
