@@ -33,7 +33,6 @@
         for(int i = 0; i < n; i++){
             cin>>y[0][i];
         }
-        cin>>x1;
         for(int i = 1; i < n; i++){
             for(int j = i; j < n; j++){
                 y[i][j] = y[i-1][j] - y[i-1][j-1];
