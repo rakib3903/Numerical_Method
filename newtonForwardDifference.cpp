@@ -50,7 +50,7 @@
         return ans;
       }
     };
-
+    
     int main(){  
       newtonForwardDifference bsm;
       cout<<bsm.solve()<<endl;

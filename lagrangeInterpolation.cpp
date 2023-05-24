@@ -7,7 +7,7 @@
     double  y[1000];
     int n;
 
-    double diterminator(int i){
+    double numerator(int i){
         double p = 1;
         p *= y[i];
         for(int j = 0; j < n; j++){
@@ -44,7 +44,7 @@
       double solve(){
         double ans = 0;
         for(int i = 0; i < n; i++){
-            double a = diterminator(i);
+            double a = numerator(i);
             double b = dinominator(i);
             ans += a / b;
         }
