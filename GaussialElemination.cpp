@@ -44,7 +44,7 @@
 
     };
 
-    int main(){  
+    int main(){
       GaussianElemination bsm;
       bsm.solve();
       return 0;
