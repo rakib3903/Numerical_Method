@@ -1,60 +1,49 @@
     #include<bits/stdc++.h>
     #define ll long long
     using namespace std;
-    
-    class BisectionMethod{
 
-      private:
-      double f(double x){
-        return x*x*x - x - 1;
-      }
+    double f(double x){
+        return pow(x,3) +  pow(x, 2) - 1;
+    }
 
-      public:
-      double a, b;
-      BisectionMethod(){
-        srand(time(0));
-          while(true){
-            a = rand() % 10-6;
-            b = rand() % 10;
-            if(f(a) * f(b) < 0){
-              int x = min(a,b);
-              b = max(a,b);
-              a = x;
-              break;
+    class Biosection{
+        public:
+        double a, b;
+        Biosection(){
+            srand(time(0));
+            while(true){
+                a = rand() % 10-9;
+                b = rand() % 10;
+                if(f(a) * f(b) < 0){
+                    int x = min(a, b);
+                    b = max(a, b);
+                    a = x;
+                    break;
+                }
             }
-          }
         }
-      
-      void ab(){
-        double pricision = 0.01;
-      double c = (a + b) / 2;
-      cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
-      double x = c;
-          if(f(a) * f(c) > 0){
-                    a = c;
-                  }else{
-                    b = c;
-                  } 
-              c =(a+b)/2; 
-              cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
-      while(true){
-        if(c == 0.0) break;
-         else if(f(a) * f(c) > 0){
-          a = c;
-        }else{
-          b = c;
+
+        void ab(){
+            double pricision = 0.001;
+            double root  = (a + b) / 2;
+            cout<<"first = "<<a<<"  second = "<<b<<"  root = "<<root<<endl;
+            double x = root;
+
+            while(true){
+                if(f(a) * f(root) == 0) break;
+                else if(f(a) * f(root) > 0) a = root;
+                else b = root;
+                root  = (a + b) / 2;
+                if(abs((root - x) / root) < pricision) break;
+                x = root;
+                cout<<"first = "<<a<<"  second = "<<b<<"  root = "<<root<<endl;
+            }
+            cout<<root<<endl;
         }
-        if(abs((c - x)/c) < pricision) break;
-        x = c;
-        c = (a + b) / 2;
-        cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
-      }
-      cout<<c<<endl;
-      }
     };
 
     int main(){  
-      BisectionMethod bsm;
-      bsm.ab();
+      Biosection bs = Biosection();
+      bs.ab();
       return 0;
     }
