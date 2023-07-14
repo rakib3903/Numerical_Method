@@ -1,59 +1,49 @@
     #include<bits/stdc++.h>
     #define ll long long
     using namespace std;
-    
-    class FalsePosition{
 
-      private:
-      double f(double x){
-        return x*x*x + x*x - 1;
-      }
+    double f(double x){
+        return pow(x,3) +  pow(x, 2) - 1;
+    }
 
-      public:
-      double a, b;
-      FalsePosition(){
-        srand(time(0));
-          while(true){
-            a = rand() % 10-9;
-            b = rand() % 10;
-            if(f(a) * f(b) < 0){
-              int x = min(a,b);
-              b = max(a,b);
-              a = x;
-              break;
+    class Falseposition{
+        public:
+        double a, b;
+        Falseposition(){
+            srand(time(0));
+            while(true){
+                a = rand() % 10-9;
+                b = rand() % 10;
+                if(f(a) * f(b) < 0){
+                    int x = min(a, b);
+                    b = max(a, b);
+                    a = x;
+                    break;
+                }
             }
-          }
         }
-      void ab(){
-        double pricision = 0.001;
-      double c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
-      cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
-      double x = c;
-          if(f(a) * f(c) > 0){
-                    a = c;
-                  }else{
-                    b = c;
-                  }
-                  c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
-                  cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
-      while(true){
-        if(c == 0.0) break;
-         else if(f(a) * f(c) > 0){
-          a = c;
-        }else{
-          b = c;
+
+        void ab(){
+            double pricision = 0.001;
+            double root  = ((a * f(b)) - (b * f(a)))/(f(b) - f(a));
+            cout<<"first = "<<a<<"  second = "<<b<<"  root = "<<root<<endl;
+            double x = root;
+
+            while(true){
+                if(f(a) * f(root) == 0) break;
+                else if(f(a) * f(root) > 0) a = root;
+                else b = root;
+                root  = ((a * f(b)) - (b * f(a)))/(f(b) - f(a));
+                if(abs((root - x) / root) < pricision) break;
+                x = root;
+                cout<<"first = "<<a<<"  second = "<<b<<"  root = "<<root<<endl;
+            }
+            cout<<root<<endl;
         }
-        if(abs((c - x)/c) < pricision) break;
-        x = c;
-        c = ((a * f(b)) - (b * f(a))) /(f(b) - f(a));
-        cout<<"a = "<<a<<"   b = "<<b<<"   root = "<<c<<endl;
-      }
-      cout<<c<<endl;
-      }
     };
 
     int main(){  
-      FalsePosition fp;
+      Falseposition fp = Falseposition();
       fp.ab();
       return 0;
     }
